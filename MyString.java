@@ -62,7 +62,7 @@ public class MyString {
             return space;
         }
         for(int i=0;i<str.length();i++){
-            if(str.length()==1){
+            if((i==str.length() - 1)){
                 space+=str.charAt(i) + " ";
                 break;
             }
