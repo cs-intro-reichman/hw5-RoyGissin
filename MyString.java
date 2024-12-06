@@ -8,7 +8,7 @@ public class MyString {
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
-        //// Put your other tests here.
+        
     }
 
     /**
@@ -37,22 +37,15 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-    if(str1.length()==0){
-            return true;}
-        if(str2.length()<str1.length()){
+       if(str1.length()>str2.length()){
+        return false;
+       }
+       for(int i=0;i<str1.length();i++){
+        if(countChar(str1, str1.charAt(i))>countChar(str2, str2.charAt(i))){
             return false;
         }
-         for(int i=0;i<=str2.length()-str1.length();i++){
-            int j;
-            for(j=0;j<str1.length();j++){
-                if(str2.charAt(i+j)!=str1.charAt(j)){
-                    break;
-                } 
-            } if(j==str1.length()){
-                return true;
-            }
-        }     
-        return false;
+       }
+       return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -64,25 +57,19 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        char[] arr=new char[2*str.length()-1];
-        arr[0]=str.charAt(0);
-        int j=0;
-            for(int i=1;i<arr.length;i++){
-                if(i%2!=0){
-                    arr[i]=' ';
-                    j++;
-                }
-                else{
-                   arr[i]=str.charAt(i-j); 
-                }
+        String space="";
+        if(str==""){
+            return space;
+        }
+        for(int i=0;i<str.length();i++){
+            if(str.length()==1){
+                space+=str.charAt(i) + " ";
+                break;
             }
-            String spacestr="";
-            for(int i=0;i<arr.length;i++){
-                spacestr+=arr[i];
-            }
-        
-        return spacestr;
-    }
+        space+=(str.charAt(i)) + " ";
+    } 
+    return space;
+}
   
     /**
      * Returns a string of n lowercase letters, selected randomly from 
