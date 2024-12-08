@@ -109,10 +109,11 @@ public class Scrabble {
 			// end-of-line characters.
 			String input = in.readString();
 			if(input.equals(".")){
-				System.out.print("End of hand. Total score: " + score + " points");
+				System.out.println("End of hand. Total score: " + score + " points");
 				break;
 			}
 			if(MyString.subsetOf(input, hand)){
+				
 				if(isWordInDictionary(input)){
 				score+=wordScore(input);
 				hand=MyString.remove(hand, input);
