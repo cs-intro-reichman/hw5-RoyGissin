@@ -41,7 +41,8 @@ public class MyString {
         return false;
        }
        for(int i=0;i<str1.length();i++){
-        if(countChar(str1, str1.charAt(i))>countChar(str2, str2.charAt(i))){
+        char c=str1.charAt(i);
+        if(countChar(str1, c)>countChar(str2, c)){
             return false;
         }
        }
