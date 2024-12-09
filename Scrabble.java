@@ -48,7 +48,7 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
-		for(int i=0;i<NUM_OF_WORDS;i++){
+		for(int i=0;i<DICTIONARY.length;i++){
 			if(DICTIONARY[i].equals(word) && DICTIONARY[i] != null){
 				return true;
 			}
@@ -65,9 +65,9 @@ public class Scrabble {
 		String runi="runi";
 
 		for(int i=0;i<word.length();i++){
-			if(word.charAt(i)>='a'&&word.charAt(i)<='z'){
-				int index=word.charAt(i)-'a';
-				sum+=SCRABBLE_LETTER_VALUES[index];
+			char c = word.charAt(i);
+			if(c >= 'a' && c <='z'){
+				sum+=SCRABBLE_LETTER_VALUES[c - 'a'];
 			}
 		} score=sum*word.length();
 
