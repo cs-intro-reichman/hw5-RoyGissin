@@ -60,16 +60,15 @@ public class Scrabble {
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
-		int sum=0;
-		int score;
+		int score=0;;
 		String runi="runi";
 
 		for(int i=0;i<word.length();i++){
 			char c = word.charAt(i);
 			if(c >= 'a' && c <='z'){
-				sum+=SCRABBLE_LETTER_VALUES[c - 'a'];
+				score+=SCRABBLE_LETTER_VALUES[c - 'a'];
 			}
-		} score=sum*word.length();
+		} score*=word.length();
 
 		if(word.length()==10){
 			score+=50;
